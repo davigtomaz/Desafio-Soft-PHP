@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/style.css">
+    <title>Desafio
+    </title>
+</head>
+<body>
+    <div class="nav">
+    <a href="index.html" style="font-size: xx-large;">Suite Store</a>
+    <a href="produtcs.html">Products</a>
+    <a href="categories.html">Categories</a>
+    <a href="history.html">History</a>
+    </div>
+
+    <div class="container2">
+        <div class="">
+            <div class="tableItens">
+                <table>
+                    <thead >
+                        <tr id="trItens" style=" font-weight: 800;">
+                            <td >Code</td>
+                            <td>Tax</td>
+                            <td>Total</td>
+                            <td></td>
+                        </tr>
+                    </thead>
+                    <tbody id="lista">
+                      
+                    </tbody>
+                </table>
+            </div>
+            <div class='hidden' id='modal'>
+                <div class="contentModal">
+                    <table >
+                        <thead>
+                            <tr id="trItens" style="font-weight: 900;">
+                                <td>Product</td>
+                                <td>Category</td>
+                                <td>Amount</td>
+                                <td>Unit Price</td>
+                            </tr>
+                        </thead>
+                        <tbody id="tableHistory">
+
+                        </tbody>
+                    </table>
+                    <button onclick='closeModal()' class="buttonClose">X</button>
+                </div>
+            </div>
+        </div>
+   
+</div>
+</div>
+
+ 
+
+</body>
+</html>
+
+<script src="assets/history.js">
+
+</script>
+
+
+<style>
+
+.buttonClose{
+    font-size: large;
+    background-color: mediumslateblue;
+    border: none;
+    border-radius: 7px;
+    padding: 10px 10px ;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.hidden{
+    display: none !important;
+}
+
+dl{
+    padding: 20px;
+}
+#modal {
+    background-color: rgba(0, 0, 0, 0.418);
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.contentModal{
+    background-color: white;
+    width: 70vw;
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.container2{
+   display: flex;
+   justify-content: center;
+   padding-top: 10%;
+    
+}
+
+td{
+    text-align: center;
+    padding: 0 100px;
+    border-right: 2px solid gray;
+    height: 40px;
+   
+}
+td:last-child{
+border-right: none;
+}
+
+
+table{
+    border-collapse: collapse;
+    
+}
+
+#trItens{
+    border-bottom: 2px solid gray;
+    
+}
+
+.buttonView{
+    background-color: mediumslateblue;
+    border: none;
+    border-radius: 7px;
+    padding: 10px 30px ;
+    cursor: pointer;
+}
+
+</style>

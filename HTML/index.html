@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/style.css">
+    <title>Desafio
+    </title>
+</head>
+<body>
+    <div class="nav">
+    <a href="index.html" style="font-size: xx-large;">Suite Store</a>
+    <a href="produtcs.html">Products</a>
+    <a href="categories.html">Categories</a>
+    <a href="history.html">History</a>
+    </div>
+
+    <div class="container">
+        <div class="gridItem1">
+            <select name="Products" id="product_name" class="selectProduct" onchange="changeProduct(event) "><option value="1" disabled selected hidden>Select a Product</option></select>
+            <input type="number" placeholder="Amount" class="buttonAmount" id="cart_amount" min="0" >
+            <input type="text" placeholder="Tax" class="buttonTaxPrice" disabled id="cart_tax">
+            <input type="number" placeholder="Price" class="buttonTaxPrice" disabled id="cart_price">
+            <button class="buttonProduct" id="btn">Add Product</button>
+        </div>
+    
+        <div class="gridItem2">
+            <div class="tableItens">
+                <table>
+                    <thead >
+                        <tr id="trItens" style=" font-weight: 800;">
+                            <td class="productItens">Product</td>
+                            <td>Unit Price</td>
+                            <td>Amount</td>
+                            <td>Total</td>
+                            <td></td>
+                   
+                            
+                        </tr>
+                    </thead>
+                    <tbody id="lista">
+                        
+                    </tbody>
+                </table>
+            </div>
+            <div class="areaFinish">
+                <div class="totalFinish" id="totalFinish">
+                    <p >Tax: </p>
+                    <p >Total: </p>
+                </div>
+                <div class="buttonFinish" >
+                    <button class="buttonFinish1">Cancel</button>
+                    <button  class="buttonFinish2">Finish</button>
+                </div>
+            </div>
+        </div>
+   
+</div>
+</div>
+
+
+
+
+</body>
+</html>
+
+<script src="assets/index.js"></script>
+
+<style>
+
+
+.buttonDelete{
+    background-color: mediumslateblue;
+    border: none;
+    border-radius: 7px;
+    padding: 10px 30px ;
+    cursor: pointer;
+}
+.selectProduct{
+    color: gray;
+    width: 98.9%;
+    height: 30px;
+    display: block;
+    background-color: #f1f1f1;
+    border-radius: 7px;
+    border: none;
+}
+
+.buttonAmount{
+    width: 51%;
+    height: 30px;
+    margin-right: 1%;
+    margin-top: 0.5%;
+    margin-bottom: 0.5%;
+    border: none;
+    background-color: #f1f1f1;
+    border-radius: 7px;
+
+}
+.buttonTaxPrice{
+    width: 22.6%;
+    height: 30px;
+    background-color: #f1f1f1;
+    border-radius: 7px;
+    border:  none #f1f1f1;
+    
+}
+
+
+.buttonProduct{
+    display: block;
+    width: 100%;
+    height: 30px;
+    background-color: mediumslateblue;
+    border: none;
+    border-radius: 7px;
+}
+
+.areaFinish{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    padding: 20px;
+    
+}
+.tableItens{
+    position: relative;
+    
+}
+td{
+    text-align: center;
+    padding: 0 26px;
+    border-right: 2px solid gray;
+    height: 40px;
+   
+}
+td:last-child{
+border-right: none;
+}
+table{
+    border-collapse: collapse;
+}
+#trItens{
+
+    border-bottom: 2px solid gray;
+}
+.productItens{
+    width: 450px;
+}
+.totalFinish{
+    font-size: larger;
+    padding-left: 300px;
+    padding-bottom: 40px;
+    
+}
+.buttonFinish{
+ display: flex ;
+ gap: 1vw;
+} 
+.buttonFinish1{
+    border: none;
+    border-radius: 7px;
+    padding: 10px 90px ;
+}
+.buttonFinish2{
+    background-color: mediumslateblue;
+    border: none;
+    border-radius: 7px;
+    padding: 10px 90px ;
+}
+</style>

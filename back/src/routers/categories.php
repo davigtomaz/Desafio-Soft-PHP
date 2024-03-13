@@ -13,7 +13,6 @@ function Request(){
             break;
         case "POST":
             echo $categoriesClass->postCategories();
-        
             break;
         case "DELETE":
             echo $categoriesClass->deleteCategories();

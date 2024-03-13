@@ -2,6 +2,7 @@
 header("Access-Control-Allow-Headers: Content-Type");
 header("Access-Control-Allow-Methods: GET, POST, DELETE");
 header("Access-Control-Allow-Origin: *");
+header("Content-Type: application/json; charset=UTF-8");
 
 include('../index.php');
 
@@ -9,11 +10,12 @@ class CategoriesClass {
     public string $name;
     public float $tax;
 
-    public function __construct( )
+    public function __construct( )   
     {
         if($_POST){
-        $this->name = filter_input(INPUT_POST,'name',FILTER_SANITIZE_SPECIAL_CHARS);
-        $this->tax = filter_input(INPUT_POST,'tax',FILTER_SANITIZE_NUMBER_FLOAT,FILTER_FLAG_ALLOW_FRACTION);
+        $this->name = filter_input(INPUT_POST, 'name' ,FILTER_SANITIZE_SPECIAL_CHARS);
+        $this->tax = filter_input(INPUT_POST, 'tax' ,FILTER_SANITIZE_NUMBER_FLOAT,FILTER_FLAG_ALLOW_FRACTION);
+        
     }   else {
         return "";
     }

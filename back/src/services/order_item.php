@@ -13,8 +13,6 @@ class OrderItemClass {
     public float $price;
     public float $tax;
  
-    
-
     public function __construct()
     {
         if($_POST){

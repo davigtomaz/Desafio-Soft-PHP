@@ -26,8 +26,6 @@ let totalTax = 0
         totalPurchase = 0
         totalTax = 0
 
-    
-
         listCarts.forEach((x, index) => {
                 newList +=  `<tr id="trItens">
                                 <td>${x.name}</td>
@@ -147,7 +145,7 @@ let totalTax = 0
 
     async function changeProduct(event){
         let value =  await getProductsById(event.target.value)
-        
+
         input_tax.value = value[0].tax_cat
         input_price.value = value[0].price
     }
@@ -216,6 +214,7 @@ let totalTax = 0
                     
                         let newCart = getCart()
                         for (let item of newCart){
+                            console.log(item)
                             let order_item = {
                                 order_code: parseInt(order.code),
                                 product_code: item.code_product,
@@ -234,6 +233,7 @@ let totalTax = 0
             }
         }
     }
+  
 
     function deleteCarts(index){
         listCarts.splice(index,1);

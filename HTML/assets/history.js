@@ -65,7 +65,7 @@ function closeModal(){
     modal.classList.add('hidden')
 }
 
-    getAllProducts();
+getAllProducts();
 
 
 const button = document.querySelector('button')

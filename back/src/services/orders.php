@@ -7,15 +7,15 @@ include('../index.php');
 
 class OrdersClass{
     public int $code;
+    public int $users_code;
     public float $total;
     public float $tax;
-
 
     public function __construct()
     {
         if($_POST){
-
             $this->code = filter_input(INPUT_POST,'code',FILTER_SANITIZE_NUMBER_INT);
+            $this->users_code = filter_input(INPUT_POST,'users_code',FILTER_SANITIZE_NUMBER_INT);
             $this->total = filter_input(INPUT_POST,'total',FILTER_SANITIZE_NUMBER_FLOAT,FILTER_FLAG_ALLOW_FRACTION);
             $this->tax = filter_input(INPUT_POST,'tax',FILTER_SANITIZE_NUMBER_FLOAT,FILTER_FLAG_ALLOW_FRACTION);
         }else {
@@ -23,14 +23,14 @@ class OrdersClass{
         }
     }
 
-    public function getOrders() {
-        $orders = myPDO->query('SELECT * FROM ORDERS');
+    public function getOrders($users_code) {
+        $orders = myPDO->query("SELECT * FROM ORDERS WHERE USERS_CODE = '{$users_code}' ");
         $orders = $orders->fetchALL();
         return json_encode($orders);
     }
     
     public function postOrders(){
-        $orders = myPDO->prepare("INSERT INTO ORDERS (CODE, TOTAL, TAX) VALUES ( '$this->code','$this->total', '$this->tax') ");
+        $orders = myPDO->prepare("INSERT INTO ORDERS (CODE, USERS_CODE, TOTAL, TAX) VALUES ( '$this->code', '$this->users_code' , '$this->total', '$this->tax') ");
         $orders = $orders->execute();
 
         return json_encode($orders) ;

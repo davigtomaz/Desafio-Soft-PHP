@@ -7,7 +7,9 @@ function Request() {
 
     switch($method){
         case 'GET':
-            echo $ordersClass->getOrders();
+            if($_SERVER['QUERY_STRING']){
+                echo $ordersClass->getOrders($_GET['users_code']);
+            } 
             break;
         case 'POST':
             echo $ordersClass->postOrders();

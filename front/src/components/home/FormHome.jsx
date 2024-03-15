@@ -51,6 +51,15 @@ function FormIndex() {
     const price = parseFloat(input_price.value);
     const tax = parseFloat(input_tax.value);
 
+    if (amount < 0){
+      return alert('valor inválido')
+    }
+
+
+    if (amount === "" ) {
+      return alert("Preencha Todos os Dados!");
+    }   
+
     if (selectedProduct.amount >= amount) {
       await dispatch(
         addProductToCart({

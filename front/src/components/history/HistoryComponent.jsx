@@ -1,12 +1,14 @@
 import styles from "../../style/history/History.module.css";
 import { useState, useEffect } from "react";
 import ModalHistory from "./ModalHistory";
+import { useSelector } from "react-redux";
 
 function HistoryComponent() {
-  const url = "http://localhost/routers/orders.php";
-  const urlOrderItem = "http://localhost/routers/order_item.php";
+  const users_code = useSelector((rootReducer) => rootReducer.userReducer.currentUser.code);
+
+  const url = `http://localhost/routers/orders.php?users_code=${users_code}`;
   const [orders, setOrders] = useState([]);
-  const [ordersItens, setOrdersItens] = useState([])
+
   
   const [selectOrder, setSelectedOrder] = useState(0)
     function loadingOrders(){

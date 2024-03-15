@@ -11,6 +11,11 @@ function FormCategories() {
 
   const postCategories = async (e) => {
     e.preventDefault();
+
+    if (input_tax.value < 0){
+      return alert('valor inválido')
+    }
+
     if (input_name.value === "" || input_tax.value === "") {
       return alert("Preencha Todos os Dados!");
     }   
@@ -22,7 +27,7 @@ function FormCategories() {
           method: "POST",
           body: data,
         },
-        window.location.reload()
+      
       );
     } catch (error) {
       console.log(error.message);
@@ -49,7 +54,7 @@ function FormCategories() {
         value={tax}
         onChange={(e) => setTax(e.target.value)}
         className={styles.inputTax}
-      />
+        min='0'/>
        <button
         className={styles.CartBtn}
         id="btn"

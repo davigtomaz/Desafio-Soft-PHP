@@ -26,6 +26,8 @@ const cartReducer = (state = initialState, action) => {
       return {
         products: [...state.products, { ...action.payload }],
       };
+      case CartActionTypes.removeCart:
+        return { ...state, products: []}
 
     case CartActionTypes.removeProduct:
       return {

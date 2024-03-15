@@ -42,6 +42,7 @@ function TableCategories() {
               <td>{category.code}</td>
               <td>{category.name}</td>
               <td>{category.tax}</td>
+              <td>
               <button className={styles.btn} onClick={() => deleteCategory(category.code)}>
                 <svg
                   viewBox="0 0 15 17.5"
@@ -57,6 +58,7 @@ function TableCategories() {
                   ></path>
                 </svg>
               </button>
+              </td>
             </tr>
           ))}
         </tbody>

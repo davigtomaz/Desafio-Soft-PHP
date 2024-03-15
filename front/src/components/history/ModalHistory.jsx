@@ -13,7 +13,6 @@ function ModalHistory ({selectOrder, setSelectedOrder}) {
     setOrdersItens([])
     const response = await fetch(urlOrderItem).then(response=>response.json())
     let data = await response;
-    console.log(data)
     let res = data.filter(item=>{
       if(item.order_code == selectOrder){
         return item

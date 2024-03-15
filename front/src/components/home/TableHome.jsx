@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import rootReducer from "../../redux/rootReducer";
 
+import { removeItensToCart } from "../../redux/cart/actions";
+
 import { removeProductToCart } from "../../redux/cart/actions";
 
 function TableHome() {
@@ -12,11 +14,16 @@ function TableHome() {
   const urlOrder = "http://localhost/routers/orders.php";
   const urlProducts = "http://localhost/routers/products.php";
   const urlOrder_Item = "http://localhost/routers/order_item.php";
+  const user = useSelector((rootReducer => rootReducer.userReducer.currentUser.code))
   let Tax = 0;
   let Total = 0;
+  
 
   const handleRemoveClick = () => {
     dispatch(removeProductToCart(products));
+  };
+  const handleRemoveClickCart = () => {
+    dispatch(removeItensToCart());
   };
 
   function transformFormData(obj) {
@@ -41,6 +48,8 @@ function TableHome() {
       })
       .catch((err) => console.log(err));
   }
+
+ 
 
   useEffect(() => {
     loadingProducts();
@@ -85,9 +94,12 @@ function TableHome() {
     }
     const order = {
       code: parseInt((Math.random() * 1000000).toFixed(0)),
+      users_code: user,
       total: Total.toFixed(2),
       tax: Tax.toFixed(2),
     };
+
+   
     const itensOrder = transformFormData(order);
     await postOrder(itensOrder);
 
@@ -104,8 +116,8 @@ function TableHome() {
       await postOrderItem(itensOrderItens);
     }
     window.location.reload();
+    handleRemoveClickCart();
   };
-
   productsCart.products.forEach((cart) => {
     Tax += (cart.product.price * cart.amount * cart.product.tax_cat) / 100;
     Total +=

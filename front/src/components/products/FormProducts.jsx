@@ -8,7 +8,10 @@ function FormProducts() {
   const [name, setName] = useState([]);
   const [amount, setAmount] = useState([]);
   const [price, setPrice] = useState([]);
-
+  const input_name = document.getElementById("product_name");
+  const input_amount = document.getElementById("product_amount");
+  const input_price = document.getElementById("product_price");
+  
   const form = document.getElementById("form");
 
   useEffect(() => {
@@ -27,6 +30,14 @@ function FormProducts() {
 
   const postProducts = async (e) => {
     e.preventDefault();
+
+    if (input_amount.value < 0 || input_price.value < 0){
+      return alert('valor inválido')
+    }
+
+    if (input_name.value === "" || input_amount.value === "" || input_price.value === "") {
+      return alert("Preencha Todos os Dados!");
+    }   
 
     const data = new FormData(form);
     try {
@@ -67,7 +78,7 @@ function FormProducts() {
         type="number"
         placeholder="Unit Price"
         className={styles.inputUnit}
-        id="product_unit"
+        id="product_price"
         value={price}
         onChange={(e) => setPrice(e.target.value)}
       />
